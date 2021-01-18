@@ -11,7 +11,6 @@ namespace PizzaBox.Domain.Models
      {
        Crust = "Hand Tossed";
        Size = "Regular";
-       Toppings = new List<string>{"Onions","Bell Pepper", "Mushroom"};
        Name = "Veggie Pizza";
        Price = 10.00;
      }

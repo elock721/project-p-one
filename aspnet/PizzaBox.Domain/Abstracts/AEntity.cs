@@ -4,12 +4,12 @@ namespace PizzaBox.Domain.Abstracts
 {
   public abstract class AEntity
   {
-    public Guid EntityId { get; }
+    public long EntityId { get; set; }
 
     protected AEntity()
     {
       // EntityId = DateTime.Now.Ticks;
-      EntityId = Guid.NewGuid();
+      // EntityId = Guid.NewGuid();
     }
   }
 }

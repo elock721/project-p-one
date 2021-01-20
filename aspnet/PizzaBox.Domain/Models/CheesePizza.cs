@@ -12,7 +12,7 @@ namespace PizzaBox.Domain.Models
        Crust = "Hand Tossed";
        Size = "Regular";
        Name = "Cheese Pizza";
-       Price = 10.00;
+       Price = 8.00;
      }
   }
 }

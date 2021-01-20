@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model PizzaBox.Domain.Models.User
+
+
+@{
+  ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+  <h1 class="display-4">Welcome to PizzaBox!</h1>
+  <h2>Please enter your name</h2>
+
+  <form id="UserInputForm" method="post" asp-action="SaveUser" asp-controller="Home">
+    <label for="Name">Enter your name:</label>
+    <input asp-for="Name" id="Name" name="Name" type="text">
+    <button type="submit" id="saveButton">Create User</button>
+
+  </form>
+
+  <a asp-action="Index" asp-controller="Store">Go to a Store</a>
+
 </div>

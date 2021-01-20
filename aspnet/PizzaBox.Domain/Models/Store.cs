@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using PizzaBox.Domain.Models;
+using PizzaBox.Domain.Abstracts;
 
-namespace PizzaBox.Domain.Abstracts.Models
+namespace PizzaBox.Domain.Models
 {
     public class Store : AEntity
     {

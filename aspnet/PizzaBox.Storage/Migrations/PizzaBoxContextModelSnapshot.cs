@@ -46,7 +46,22 @@ namespace PizzaBox.Storage.Migrations
                     b.ToTable("Pizzas");
                 });
 
-            modelBuilder.Entity("PizzaBox.Domain.Abstracts.Models.Store", b =>
+            modelBuilder.Entity("PizzaBox.Domain.Models.Order", b =>
+                {
+                    b.Property<long>("EntityId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("StoreEntityId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("EntityId");
+
+                    b.HasIndex("StoreEntityId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("PizzaBox.Domain.Models.Store", b =>
                 {
                     b.Property<long>("EntityId")
                         .HasColumnType("bigint");
@@ -74,26 +89,6 @@ namespace PizzaBox.Storage.Migrations
                         });
                 });
 
-            modelBuilder.Entity("PizzaBox.Domain.Models.Order", b =>
-                {
-                    b.Property<long>("EntityId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("StoreEntityId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("UserEntityId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("EntityId");
-
-                    b.HasIndex("StoreEntityId");
-
-                    b.HasIndex("UserEntityId");
-
-                    b.ToTable("Orders");
-                });
-
             modelBuilder.Entity("PizzaBox.Domain.Models.User", b =>
                 {
                     b.Property<long>("EntityId")
@@ -102,12 +97,10 @@ namespace PizzaBox.Storage.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("SelectedStoreEntityId")
+                    b.Property<long>("SelectedStore")
                         .HasColumnType("bigint");
 
                     b.HasKey("EntityId");
-
-                    b.HasIndex("SelectedStoreEntityId");
 
                     b.ToTable("Users");
                 });
@@ -121,27 +114,9 @@ namespace PizzaBox.Storage.Migrations
 
             modelBuilder.Entity("PizzaBox.Domain.Models.Order", b =>
                 {
-                    b.HasOne("PizzaBox.Domain.Abstracts.Models.Store", null)
+                    b.HasOne("PizzaBox.Domain.Models.Store", null)
                         .WithMany("Orders")
                         .HasForeignKey("StoreEntityId");
-
-                    b.HasOne("PizzaBox.Domain.Models.User", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("UserEntityId");
-                });
-
-            modelBuilder.Entity("PizzaBox.Domain.Models.User", b =>
-                {
-                    b.HasOne("PizzaBox.Domain.Abstracts.Models.Store", "SelectedStore")
-                        .WithMany()
-                        .HasForeignKey("SelectedStoreEntityId");
-
-                    b.Navigation("SelectedStore");
-                });
-
-            modelBuilder.Entity("PizzaBox.Domain.Abstracts.Models.Store", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.Order", b =>
@@ -149,7 +124,7 @@ namespace PizzaBox.Storage.Migrations
                     b.Navigation("Pizzas");
                 });
 
-            modelBuilder.Entity("PizzaBox.Domain.Models.User", b =>
+            modelBuilder.Entity("PizzaBox.Domain.Models.Store", b =>
                 {
                     b.Navigation("Orders");
                 });

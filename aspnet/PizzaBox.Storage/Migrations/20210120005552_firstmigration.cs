@@ -25,17 +25,11 @@ namespace PizzaBox.Storage.Migrations
                 {
                     EntityId = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SelectedStoreEntityId = table.Column<long>(type: "bigint", nullable: true)
+                    SelectedStore = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.EntityId);
-                    table.ForeignKey(
-                        name: "FK_Users_Stores_SelectedStoreEntityId",
-                        column: x => x.SelectedStoreEntityId,
-                        principalTable: "Stores",
-                        principalColumn: "EntityId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,8 +37,7 @@ namespace PizzaBox.Storage.Migrations
                 columns: table => new
                 {
                     EntityId = table.Column<long>(type: "bigint", nullable: false),
-                    StoreEntityId = table.Column<long>(type: "bigint", nullable: true),
-                    UserEntityId = table.Column<long>(type: "bigint", nullable: true)
+                    StoreEntityId = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,12 +46,6 @@ namespace PizzaBox.Storage.Migrations
                         name: "FK_Orders_Stores_StoreEntityId",
                         column: x => x.StoreEntityId,
                         principalTable: "Stores",
-                        principalColumn: "EntityId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Orders_Users_UserEntityId",
-                        column: x => x.UserEntityId,
-                        principalTable: "Users",
                         principalColumn: "EntityId",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -101,19 +88,9 @@ namespace PizzaBox.Storage.Migrations
                 column: "StoreEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_UserEntityId",
-                table: "Orders",
-                column: "UserEntityId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Pizzas_OrderEntityId",
                 table: "Pizzas",
                 column: "OrderEntityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_SelectedStoreEntityId",
-                table: "Users",
-                column: "SelectedStoreEntityId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -122,10 +99,10 @@ namespace PizzaBox.Storage.Migrations
                 name: "Pizzas");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Stores");

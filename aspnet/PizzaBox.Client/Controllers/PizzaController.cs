@@ -12,8 +12,6 @@ namespace PizzaBox.Client.Controllers
 {
     public class PizzaController : Controller
     {
-
-
         public IActionResult Index()
         {
           PizzaViewModel pizzaViewModel = new PizzaViewModel();

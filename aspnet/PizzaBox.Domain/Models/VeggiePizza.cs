@@ -9,8 +9,8 @@ namespace PizzaBox.Domain.Models
     // constructor
      public VeggiePizza()
      {
-       Crust = "Hand Tossed";
-       Size = "Regular";
+       Crust = "Thin Crust";
+       Size = "Medium";
        Name = "Veggie Pizza";
        Price = 10.00;
      }

@@ -1,13 +1,24 @@
+
+<img src="~/images/pizza.png" alt="">
 <p>
-  Your order is: @ViewBag.OrderType
+  <h4>Your order is: </h4> @ViewBag.OrderType
 </p>
 <br/>
 <div>
-  Pizza Details:<br/>
+  <h4>Pizza Details:</h4>
   <ul>
     <li>Name: @ViewBag.Name</li>
     <li>Crust: @ViewBag.Crust</li>
     <li>Size: @ViewBag.Size</li>
     <li>Price: @ViewBag.Price</li>
   </ul>
+
+<a asp-action="Index" asp-controller="Store">Change Order</a> <br>
+<a asp-action="Index" asp-controller="Home">Return to Login</a>
+
 </div>
+
+<br>
+<br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="">

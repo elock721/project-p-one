@@ -4,6 +4,8 @@ using PizzaBox.Domain.Factories;
 
 namespace PizzaBox.Domain.Models
 {
+
+  // future development
   public class Order : AEntity
   {
     //creating diff instances of pizzas

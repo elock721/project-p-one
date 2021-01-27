@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using PizzaBox.Client.Models;
 using PizzaBox.Domain.Models;
 
+// all starts here
+
 namespace PizzaBox.Client.Controllers
 {
     public class HomeController : Controller
@@ -17,6 +19,8 @@ namespace PizzaBox.Client.Controllers
         private readonly PizzaBox.Storage.PizzaBoxContext _ctx;
         private readonly PizzaBox.Storage.SqlClient sqlClient;
 
+
+        // dependency injection
         public HomeController(ILogger<HomeController> logger,PizzaBox.Storage.PizzaBoxContext dbContext)
         {
             _logger = logger;

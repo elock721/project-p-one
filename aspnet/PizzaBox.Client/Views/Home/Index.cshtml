@@ -1,21 +1,28 @@
 ﻿@model PizzaBox.Domain.Models.User
 
 
-@{
+@* @{
   ViewData["Title"] = "Home Page";
-}
+} *@
 
 <div class="text-center">
-  <h1 class="display-4">Welcome to PizzaBox!</h1>
+  @* <h1 class="display-4">Welcome to PizzaBox!</h1> *@
+
+  <img src="~/images/pizza.png" alt="">
   <h2>Please enter your name</h2>
 
   <form id="UserInputForm" method="post" asp-action="SaveUser" asp-controller="Home">
-    <label for="Name">Enter your name:</label>
+    <label for="Name"></label>
     <input asp-for="Name" id="Name" name="Name" type="text">
-    <button type="submit" id="saveButton">Create User</button>
+    <button class="btn btn-danger" type="submit" id="saveButton">Create User</button>
 
   </form>
 
-  <a asp-action="Index" asp-controller="Store">Go to a Store</a>
+  <a asp-action="Index" asp-controller="Store">Place an Order</a>
+
+  <br>
+  <br>
+
+  <img src="https://www.qsrmagazine.com/sites/default/files/styles/story_page/public/phut_0.jpg?itok=h30EAnkk" alt="">
 
 </div>

@@ -35,8 +35,11 @@ Pizza Box 5000 is an MVC application that allows the user to enter their name in
 ## Usage
 
 1. Enter your name and click "Create User"
+![Alt text](aspnet/PizzaBox.Client/wwwroot/images/pic1.png "Main")
 2. Pick the Pizza of your choice
+![Alt text](aspnet/PizzaBox.Client/wwwroot/images/pic2.png "Main")
 3. See and review your order, change it if you'd like!
+![Alt text](aspnet/PizzaBox.Client/wwwroot/images/pic3.png "Main")
 
 ## License
 
